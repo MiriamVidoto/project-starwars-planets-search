@@ -5,7 +5,11 @@ import App from '../App'
 
 
 describe('Teste do componente Home',  () => {
-  test('Se na página existe l', () =>{
+  test('Se a Api é chamada', () =>{
     render(<App />);
+  })
+  test('Se na página existe o input para filtrar por nome', () =>{
+    render(<App />);
+    expect(screen.getByTestId('input-gravatar-email')).toBeDefined();
   })
 })
