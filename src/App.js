@@ -1,13 +1,13 @@
 import React from 'react';
-import Table from './components/Table';
-import PlanetsProvider from './context/PlanetsProvider';
+import Home from './pages/Home';
 import './styles/App.css';
+import PlanetsProvider from './context/PlanetsProvider';
 
 function App() {
   return (
     <div className="App">
       <PlanetsProvider>
-        <Table />
+        <Home />
       </PlanetsProvider>
     </div>
   );
