@@ -2,11 +2,11 @@ import React from 'react';
 import '../styles/Filters.css';
 
 function Filters() {
-  const columnFiltersOptions = ['Population',
-    'Orbital_period',
-    'Diameter',
-    'Rotation_period',
-    'Surface_water'];
+  const columnFiltersOptions = ['population',
+    'orbital_period',
+    'diameter',
+    'rotation_period',
+    'surface_water'];
   const comparisonFilterOptions = ['maior que', 'menor que', 'igual a '];
 
   return (

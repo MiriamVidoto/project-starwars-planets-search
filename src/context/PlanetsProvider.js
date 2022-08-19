@@ -6,7 +6,6 @@ import planetsContext from './planetsContext';
 function PlanetsProvider({ children }) {
   const [loading, setLoading] = useState(false);
   const [planets, setPlanets] = useState([]);
-  const [filteredPlanets, setFilteredPlanets] = useState([]);
   const [filterByName, setFilterByName] = useState({ name: '' });
 
   const requestPlanets = async () => {
@@ -17,23 +16,14 @@ function PlanetsProvider({ children }) {
       return planet;
     });
     setPlanets(newPlanets);
-    setFilteredPlanets(newPlanets);
     setLoading(false);
-  };
-
-  const handleChangeName = ({ target }) => {
-    setFilterByName({ name: target.value });
-    const planetsFilter = planets
-      .filter((planet) => (
-        planet.name.toLowerCase().includes(filterByName.name.toLowerCase())));
-    setFilteredPlanets(planetsFilter);
   };
 
   const INITIAL_STATE = { loading,
     requestPlanets,
-    filteredPlanets,
+    planets,
     filterByName,
-    handleChangeName };
+    setFilterByName };
 
   return (
     <planetsContext.Provider value={ INITIAL_STATE }>

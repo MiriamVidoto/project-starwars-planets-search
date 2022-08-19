@@ -3,7 +3,7 @@ import planetsContext from '../context/planetsContext';
 import '../styles/Search.css';
 
 function Search() {
-  const { filterByName, handleChangeName } = useContext(planetsContext);
+  const { filterByName, setFilterByName } = useContext(planetsContext);
 
   return (
     <div className="search">
@@ -15,7 +15,7 @@ function Search() {
           data-testid="name-filter"
           placeholder="Filter By Name"
           value={ filterByName.name }
-          onChange={ handleChangeName }
+          onChange={ ({ target }) => setFilterByName({ name: target.value }) }
         />
       </label>
     </div>
