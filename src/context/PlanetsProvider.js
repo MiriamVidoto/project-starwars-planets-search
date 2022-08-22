@@ -21,7 +21,7 @@ function PlanetsProvider({ children }) {
   };
 
   const addNewFilter = (newFilter) => {
-    setFilterByNumericValues([newFilter, ...filterByNumericValues]);
+    setFilterByNumericValues([...filterByNumericValues, newFilter]);
   };
 
   const INITIAL_STATE = { loading,

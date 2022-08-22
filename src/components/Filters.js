@@ -15,7 +15,7 @@ function Filters() {
   const [value, setValue] = useState(0);
   const [listFilters, setListFilters] = useState([]);
 
-  const comparisonFilterOptions = ['maior que', 'menor que', 'igual a '];
+  const comparisonFilterOptions = ['maior que', 'menor que', 'igual a'];
 
   useEffect(() => { setColumn(filterOptions[0]); },
     [filterOptions]);
