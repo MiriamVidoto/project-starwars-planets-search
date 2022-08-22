@@ -4,13 +4,32 @@ import '../styles/Table.css';
 import Loading from './Loading';
 
 function Table() {
-  const { loading, requestPlanets, planets, filterByName } = useContext(planetsContext);
+  const { loading,
+    requestPlanets,
+    planets,
+    filterByName,
+    filterByNumericValues } = useContext(planetsContext);
+
   const titles = planets.length > 0
     ? Object.keys(planets[0])
     : [];
 
+  const planetsFiltered = planets
+    .filter((planet) => planet.name.toLowerCase()
+      .includes(filterByName.name.toLowerCase()))
+    .filter((planet) => filterByNumericValues.every((filter) => {
+      if (filter.comparison === 'maior que') {
+        return +planet[filter.column] > +filter.value;
+      }
+      if (filter.comparison === 'menor que') {
+        return +planet[filter.column] < +filter.value;
+      }
+      return +planet[filter.column] === +filter.value;
+    }));
+
   useEffect(() => {
     requestPlanets();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (loading) {
@@ -27,8 +46,7 @@ function Table() {
         </thead>
         <tbody>
           {
-            planets.filter((planet) => planet.name.toLowerCase()
-              .includes(filterByName.name.toLowerCase()))
+            planetsFiltered
               .map((planet) => (
                 <tr key={ planet.name }>
                   <td>{ planet.name }</td>

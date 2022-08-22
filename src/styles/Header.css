@@ -1,0 +1,9 @@
+.header {
+  background-color: rgba(0, 0, 0, 0.649);
+  padding: 8px;
+}
+
+h1 {
+  color: #dbff22;
+  font-size: 3em;
+}

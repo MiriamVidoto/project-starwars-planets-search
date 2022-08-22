@@ -7,6 +7,7 @@ function PlanetsProvider({ children }) {
   const [loading, setLoading] = useState(false);
   const [planets, setPlanets] = useState([]);
   const [filterByName, setFilterByName] = useState({ name: '' });
+  const [filterByNumericValues, setFilterByNumericValues] = useState([]);
 
   const requestPlanets = async () => {
     setLoading(true);
@@ -19,11 +20,17 @@ function PlanetsProvider({ children }) {
     setLoading(false);
   };
 
+  const addNewFilter = (newFilter) => {
+    setFilterByNumericValues([newFilter, ...filterByNumericValues]);
+  };
+
   const INITIAL_STATE = { loading,
     requestPlanets,
     planets,
     filterByName,
-    setFilterByName };
+    setFilterByName,
+    filterByNumericValues,
+    addNewFilter };
 
   return (
     <planetsContext.Provider value={ INITIAL_STATE }>
