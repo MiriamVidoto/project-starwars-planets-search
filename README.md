@@ -4,7 +4,7 @@ Este foi um projeto realizado durante o meu curso  na Trybe.
 
 Foi desenvolvido uma aplicação contendo uma lista com filtros de planetas do universo de Star Wars usando Context API e Hooks para controlar os estados globais. 
 
-https://miriamvidoto.github.io/project-starwars-planets/
+https://miriamvidoto.github.io/project-starwars-planets/search/
 
 ![img](./star-wars.png)
 
