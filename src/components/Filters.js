@@ -3,7 +3,7 @@ import planetsContext from '../context/planetsContext';
 import '../styles/Filters.css';
 
 function Filters() {
-  const { addNewFilter } = useContext(planetsContext);
+  const { addNewFilter, requestPlanets } = useContext(planetsContext);
 
   const [filterOptions, setFilterOptions] = useState(['population',
     'orbital_period',
@@ -28,6 +28,17 @@ function Filters() {
     const newList = [...listFilters,
       `${column} ${comparison} ${value}`];
     setListFilters(newList);
+  };
+
+  const handleClickDeleteFilters = () => {
+    setFilterOptions(['population',
+      'orbital_period',
+      'diameter',
+      'rotation_period',
+      'surface_water']);
+    setListFilters([]);
+    addNewFilter('delete');
+    requestPlanets();
   };
 
   return (
@@ -77,15 +88,27 @@ function Filters() {
       >
         Filter
       </button>
-      <div>
-        <ul>
-          {
-            listFilters
-              .map((filter) => (
-                <li key={ filter }>{ filter }</li>))
-          }
-        </ul>
-      </div>
+      {
+        listFilters.length > 0
+        && (
+          <div className="listFilters">
+            <h3>Filtered by:</h3>
+            <ul>
+              {
+                listFilters
+                  .map((filter) => <li key={ filter }>{ filter }</li>)
+              }
+            </ul>
+            <button
+              type="button"
+              onClick={ handleClickDeleteFilters }
+            >
+              Delete Filters
+            </button>
+          </div>
+        )
+      }
+
     </div>
   );
 }

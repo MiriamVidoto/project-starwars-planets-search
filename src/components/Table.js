@@ -41,7 +41,10 @@ function Table() {
       <table>
         <thead>
           <tr>
-            { titles.map((title) => <th key={ title }>{ title }</th>)}
+            { titles.map((title) => (
+              <th key={ title }>
+                { title.replace('_', ' ').toUpperCase() }
+              </th>))}
           </tr>
         </thead>
         <tbody>
@@ -53,15 +56,8 @@ function Table() {
                   <td>{ planet.rotation_period }</td>
                   <td>{ planet.orbital_period }</td>
                   <td>{ planet.diameter}</td>
-                  <td>{ planet.climate }</td>
-                  <td>{ planet.gravity }</td>
-                  <td>{ planet.terrain }</td>
                   <td>{ planet.surface_water }</td>
                   <td>{ planet.population }</td>
-                  <td>{ planet.films }</td>
-                  <td>{ planet.created}</td>
-                  <td>{ planet.edited }</td>
-                  <td>{ planet.url }</td>
                 </tr>
               ))
           }

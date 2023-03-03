@@ -18,7 +18,7 @@ describe('Teste do componente Home',  () => {
   test('Se a Api é chamada', () =>{
     render(<App />);
     
-    const endpoint = 'https://swapi-trybe.herokuapp.com/api/planets/';
+    const endpoint = 'https://swapi.dev/api/planets/';
     expect(global.fetch).toBeCalledTimes(1);
     expect(global.fetch).toHaveBeenCalledWith(endpoint);
   })

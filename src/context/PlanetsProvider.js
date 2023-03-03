@@ -14,6 +14,13 @@ function PlanetsProvider({ children }) {
     const result = await getPlanets();
     const newPlanets = result.map((planet) => {
       delete planet.residents;
+      delete planet.gravity;
+      delete planet.climate;
+      delete planet.terrain;
+      delete planet.films;
+      delete planet.created;
+      delete planet.edited;
+      delete planet.url;
       return planet;
     });
     setPlanets(newPlanets);
@@ -21,7 +28,11 @@ function PlanetsProvider({ children }) {
   };
 
   const addNewFilter = (newFilter) => {
-    setFilterByNumericValues([...filterByNumericValues, newFilter]);
+    if (newFilter === 'delete') {
+      setFilterByNumericValues([]);
+    } else {
+      setFilterByNumericValues([...filterByNumericValues, newFilter]);
+    }
   };
 
   const INITIAL_STATE = { loading,

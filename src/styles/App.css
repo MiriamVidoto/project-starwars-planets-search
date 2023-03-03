@@ -9,3 +9,13 @@
   color: white;
   text-align: center;
 }
+
+main {
+  align-items: center;
+  background-color: #130233;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: flex-start;
+  min-height: 85vh;
+}

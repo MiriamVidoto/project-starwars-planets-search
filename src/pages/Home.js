@@ -5,11 +5,11 @@ import Table from '../components/Table';
 
 function Home() {
   return (
-    <div>
+    <main>
       <Search />
       <Filters />
       <Table />
-    </div>
+    </main>
   );
 }
 
